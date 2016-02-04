@@ -150,7 +150,10 @@ function bgimg_settings_init(  ) {
 function bgimg_homepage_render(  ) { 
 
 	$options = get_option( 'bgimg_settings' );
+	if ( ! isset( $options['bgimg_homepage'] ) )
+		$options['bgimg_homepage'] = 0;
 	?>
+		
 	<input type='checkbox' name='bgimg_settings[bgimg_homepage]' <?php checked( $options['bgimg_homepage'], 1 ); ?> value='1'>
 	<?php
 
@@ -159,6 +162,8 @@ function bgimg_homepage_render(  ) {
 function bgimg_fullscreen_render(  ) { 
 
 	$options = get_option( 'bgimg_settings' );
+	if ( ! isset( $options['bgimg_fullscreen'] ) )
+		$options['bgimg_fullscreen'] = 0;
 	?>
 	<input type='checkbox' name='bgimg_settings[bgimg_fullscreen]' <?php checked( $options['bgimg_fullscreen'], 1 ); ?> value='1'>
 	<?php
@@ -169,6 +174,8 @@ function bgimg_fullscreen_render(  ) {
 function bgimg_single_render(  ) { 
 
 	$options = get_option( 'bgimg_settings' );
+	if ( ! isset( $options['bgimg_single'] ) )
+		$options['bgimg_single'] = 0;
 	
 	if ( !current_theme_supports( 'post-thumbnails' ) ) {
 	
@@ -187,6 +194,8 @@ function bgimg_single_render(  ) {
 function bgimg_category_render(  ) { 
 
 	$options = get_option( 'bgimg_settings' );
+	if ( ! isset( $options['bgimg_category'] ) )
+		$options['bgimg_category'] = 0;
 	
 	if ( !is_plugin_active('wpcustom-category-image/load.php') ) {
 	
